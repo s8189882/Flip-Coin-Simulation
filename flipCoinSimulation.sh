@@ -11,15 +11,24 @@ echo "This problem displays the winner Heads or Tails"
 echo ""
 
 
-#As a Simulator, start with Flipping a Coin to Display Heads or Tails as winner
-#Use ((RANDOM)) to find Heads or Tails
-#Name the file flipCoinSimulator.sh
- 
-flip=$((RANDOM%2))
+#As a simulator, loop through Multiple times of flipping a coin and show number of times head and tail has won
 
-if [[ ${flip} -eq 0 ]]; then
-	echo HEADS
-elif [[ ${flip} -eq 1 ]]; then
-	echo TAILS
-fi
+for (( i = 0; ; i++ )); do
+	flip=$((RANDOM%2))
+	if [[ ${flip} -eq 0 ]]; then
+		echo HEADS
+		h=$((h+1))
+	elif [[ ${flip} -eq 1 ]]; then
+		echo TAILS
+		t=$((t+1))
+	fi
+	echo " HEADS : $h times     TAILS : $t times"
+done
+
 echo ""
+
+
+
+
+
+
